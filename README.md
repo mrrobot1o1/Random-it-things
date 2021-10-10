@@ -37,3 +37,112 @@ Save and exit. The values were obtained from command xrandr -q. VGA1 is the name
 
 
 
+## Some Text Formattings
+cat programs.txt | sed 's/https\?:\/\///; /Seaching for Bug/d'
+
+cat programs.txt | sed 's/https\?:\/\///' | awk '!/Seaching for Bug/' > targtest.txt
+
+cat programs.txt | sed 's/https\?:\/\///; /Seaching for Bug/d; /Disclosour-Search/d; s/^www.//g' | awk -F\/ '{print $1}'
+
+cat domains_lits.txt | sed  '/Seaching for Bug Bounty/d; /[*]/d; /Fuck Something/d; s/https\?:\/\///; s/^www.//g' | awk -F\/ '{print $1}'
+
+## Only keep passwords that are 8 to 63 characters in length
+sudo grep -x '.\{8,63\}' rockyou.txt > wparockyou.txt       
+wc -l wparockyou.txt
+
+## GET CIDR IPs from json
+jq '.Information[] | ."CIDR Range"' mxtest.json  | tr -d \"
+
+## GET ASN
+ipinfo 17.253.144.10 | jq .org | tr -d \" | awk '{print $1}'
+
+## Delete old commites
+git rev-list HEAD --count
+git checkout --orphan backup
+git rev-list HEAD --count
+git add -A
+git commit -am "Removed All old commits"
+git branch -D master
+git branch -m master
+git push -f origin master
+
+## Set Github Remove Origin 
+
+git remote set-url origin git@github.com:mrrobot1o1/cheetsheets.git
+
+## Change recent commite massage
+git commit --amend -m "Initial commit"
+
+
+## PDF Password Remove
+qpdf --password=@Hide01 --decypt Sec542.pdf Sec542-1.pdf
+
+
+pdftops -upw @Hide01 Sec542.pdf nopassword.pdf
+
+
+
+## Remove all empty line
+
+### sed
+
+```
+sed '/^[[:space:]]*$/d'
+sed '/^\s*$/d'
+sed '/^$/d'
+sed -n '/^\s*$/!p'
+```
+### grep
+
+```
+grep .
+grep -v '^$'
+grep -v '^\s*$'
+grep -v '^[[:space:]]*$'
+```
+### awk
+
+```sh
+awk /./
+awk 'NF'
+awk 'length'
+awk '/^[ \t]*$/ {next;} {print}'
+awk '!/^[ \t]*$/'
+```
+```
+
+## Install Neovim
+
+## Dep
+sudo apt-get install gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip build-essential
+===> Download compile
+```sh
+cd $(mktemp -d)
+git clone https://github.com/neovim/neovim --depth 1
+cd neovim
+sudo make CMAKE_BUILD_TYPE=Release install
+cd ..
+sudo rm -r neovim
+```
+
+https://sharedby.blomp.com/pFmWz5
+
+
+
+## Disbale Touchpad  Linux
+xinput set-prop "SynPS/2 Synaptics TouchPad" "Device Enabled" 0
+## Enable Touchpad
+xinput set-prop "SynPS/2 Synaptics TouchPad" "Device Enabled" 1
+
+
+## Open Gmail with mail to
+
+https://mail.google.com/mail/u/0/?fs=1&to=test@test.com&tf=cm
+
+
+https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=target@email.com
+
+
+## Custom PS1
+
+export PS1="\[\e[1;32m\]john@ubuntu:\[\e[0;32m\]\w\[\e[0;35m\]$(gitPrompt)\[\e[0;32m\]▶\[\e[0;37m\]"
