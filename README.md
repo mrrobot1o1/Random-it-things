@@ -38,7 +38,8 @@ Save and exit. The values were obtained from command xrandr -q. VGA1 is the name
 
 
 ## Some Text Formattings
-```bash
+
+```sh
 cat programs.txt | sed 's/https\?:\/\///; /Seaching for Bug/d'
 
 cat programs.txt | sed 's/https\?:\/\///' | awk '!/Seaching for Bug/' > targtest.txt
