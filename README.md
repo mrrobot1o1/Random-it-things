@@ -1,0 +1,39 @@
+
+
+## Disbale Windows Defender in LTSC 2019
+
+1. Go to Settings -> Apps -> Startup and disable Windows Security notification icon
+
+2. Open gpedit.msc and go to:
+
+-Computer Configuration -> Administrative Templates -> Windows Components -> Windows Defender Antivirus. Open the Turn off Windows Defender Antivirus policy and set it as Enabled.
+
+-Computer Configuration -> Administrative Templates -> Windows Components -> Windows Defender Application Guard. Open the Turn on Windows Defender Application Guard in Enterprise Mode policy, set it as Enabled and set it's data value to 0.
+
+-Computer Configuration -> Administrative Templates -> Windows Components -> Windows Defender SmartScreen -> Explorer. Open the two policies there and set them both to Disabled.
+
+-Computer Configuration -> Administrative Templates -> Windows Components -> Windows Defender SmartScreen -> Microsoft Edge. Open the first policy there and set it to Disabled.
+
+3. Open regedit and go to:
+
+-HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SecurityHealthService. Open the registry entry called Start and set it's data value to 4.
+
+4. Reboot Windows and Defender will be gone forever!
+
+
+
+## Wrong Login Screen Resolution (LightDM)
+
+sudo gedit /usr/share/X11/xorg.conf.d/52-myres.conf
+
+then in the file:
+
+Section "Monitor"
+    Identifier "VGA1"
+    Option "PreferredMode" "1152x864"
+EndSection
+
+Save and exit. The values were obtained from command xrandr -q. VGA1 is the name of my connector and 1152x864 is the name of the resolution.
+
+
+
