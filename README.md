@@ -1,4 +1,4 @@
-
+# Random-it-things
 
 ## Disbale Windows Defender in LTSC 2019
 
@@ -23,6 +23,7 @@
 
 
 ## Wrong Login Screen Resolution (LightDM)
+
 ```sh
 sudo gedit /usr/share/X11/xorg.conf.d/52-myres.conf
 ```
@@ -39,7 +40,7 @@ Save and exit. The values were obtained from command xrandr -q. VGA1 is the name
 
 ## Some Text Formattings
 
-```
+```sh
 cat programs.txt | sed 's/https\?:\/\///; /Seaching for Bug/d'
 cat programs.txt | sed 's/https\?:\/\///' | awk '!/Seaching for Bug/' > targtest.txt
 cat programs.txt | sed 's/https\?:\/\///; /Seaching for Bug/d; /Disclosour-Search/d; s/^www.//g' | awk -F\/ '{print $1}'
@@ -51,11 +52,11 @@ sudo grep -x '.\{8,63\}' rockyou.txt > wparockyou.txt
 wc -l wparockyou.txt
 ```
 ## GET CIDR IPs from json
-```
+```sh
 jq '.Information[] | ."CIDR Range"' mxtest.json  | tr -d \"
 ```
 ## GET ASN
-```
+```sh
 ipinfo 17.253.144.10 | jq .org | tr -d \" | awk '{print $1}'
 ```
 ## Delete old commites
@@ -120,7 +121,7 @@ awk '!/^[ \t]*$/'
 ## Install Neovim
 
 ## Dep
-```
+```sh
 sudo apt-get install gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip build-essential
 ```
 ===> Download compile
