@@ -39,13 +39,10 @@ Save and exit. The values were obtained from command xrandr -q. VGA1 is the name
 
 ## Some Text Formattings
 
-```sh
+```
 cat programs.txt | sed 's/https\?:\/\///; /Seaching for Bug/d'
-
 cat programs.txt | sed 's/https\?:\/\///' | awk '!/Seaching for Bug/' > targtest.txt
-
 cat programs.txt | sed 's/https\?:\/\///; /Seaching for Bug/d; /Disclosour-Search/d; s/^www.//g' | awk -F\/ '{print $1}'
-
 cat domains_list.txt | sed  '/Seaching for Bug Bounty/d; /[*]/d; /Fuck Something/d; s/https\?:\/\///; s/^www.//g' | awk -F\/ '{print $1}'
 ```
 ## Only keep passwords that are 8 to 63 characters in length
@@ -123,7 +120,9 @@ awk '!/^[ \t]*$/'
 ## Install Neovim
 
 ## Dep
+```
 sudo apt-get install gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip build-essential
+```
 ===> Download compile
 ```sh
 cd $(mktemp -d)
