@@ -2,17 +2,17 @@
 
 ## Disbale Windows Defender in LTSC 2019
 
-1. Go to Settings -> Apps -> Startup and disable Windows Security notification icon
+1. Go to __Settings -> Apps -> Startup__ and disable Windows Security notification icon
 
 2. Open gpedit.msc and go to:
 
     - __Computer Configuration -> Administrative Templates -> Windows Components -> Windows Defender Antivirus.__ Open the Turn off Windows Defender Antivirus policy and set it as Enabled.
 
-    - __Computer Configuration -> Administrative Templates -> Windows Components ->__ Windows Defender Application Guard. Open the Turn on Windows Defender Application Guard in Enterprise Mode policy, set it as Enabled and set it's data value to 0.
+    - __Computer Configuration -> Administrative Templates -> Windows Components -> Windows Defender Application Guard.__ Open the Turn on Windows Defender Application Guard in Enterprise Mode policy, set it as Enabled and set it's data value to 0.
 
-    - __Computer Configuration -> Administrative Templates -> Windows Components -> Windows Defender SmartScreen ->__ Explorer. Open the two policies there and set them both to Disabled.
+    - __Computer Configuration -> Administrative Templates -> Windows Components -> Windows Defender SmartScreen -> Explorer.__ Open the two policies there and set them both to Disabled.
 
-    - __Computer Configuration -> Administrative Templates -> Windows Components -> Windows Defender SmartScreen ->__ Microsoft Edge. Open the first policy there and set it to Disabled.
+    - __Computer Configuration -> Administrative Templates -> Windows Components -> Windows Defender SmartScreen -> Microsoft Edge.__ Open the first policy there and set it to Disabled.
 
 3. Open regedit and go to:
 
