@@ -147,7 +147,7 @@ xinput set-prop "SynPS/2 Synaptics TouchPad" "Device Enabled" 0
 xinput set-prop "SynPS/2 Synaptics TouchPad" "Device Enabled" 1
 ```
 
-## Open Gmail with mail to
+## Open Gmail with mail to Similar to MAILTO:]
 
 https://mail.google.com/mail/u/0/?fs=1&to=test@test.com&tf=cm
 
