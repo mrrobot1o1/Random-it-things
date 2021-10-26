@@ -38,7 +38,7 @@ Save and exit. The values were obtained from command xrandr -q. VGA1 is the name
 
 
 
-## Some Text Formattings
+## Some Text Formatting
 
 ```sh
 cat programs.txt | sed 's/https\?:\/\///; /Seaching for Bug/d'
@@ -59,7 +59,7 @@ jq '.Information[] | ."CIDR Range"' mxtest.json  | tr -d \"
 ```sh
 ipinfo 17.253.144.10 | jq .org | tr -d \" | awk '{print $1}'
 ```
-## Delete old commites
+## Delete old commits
 
 ```sh
 git rev-list HEAD --count
@@ -71,11 +71,11 @@ git branch -D master
 git branch -m master
 git push -f origin master
 ```
-## Set Github Remove Origin 
+## Set GitHub Remove Origin 
 ```sh
 git remote set-url origin git@github.com:mrrobot1o1/cheetsheets.git
 ```
-## Change recent commite massage
+## Change recent commits massage
 ```sh
 git commit --amend -m "Initial commit"
 ```
@@ -120,7 +120,7 @@ awk '!/^[ \t]*$/'
 
 ## Install Neovim
 
-## Dep
+## Dependencies
 ```sh
 sudo apt-get install gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip build-essential
 ```
@@ -138,7 +138,7 @@ https://sharedby.blomp.com/pFmWz5
 
 
 
-## Disbale Touchpad  Linux
+## Disable Touchpad  Linux
 ```sh
 xinput set-prop "SynPS/2 Synaptics TouchPad" "Device Enabled" 0
 ```
@@ -159,3 +159,5 @@ https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=target@email.com
 ```sh
 export PS1="\[\e[1;32m\]john@ubuntu:\[\e[0;32m\]\w\[\e[0;35m\]$(gitPrompt)\[\e[0;32m\]▶\[\e[0;37m\]"
 ```
+
+## Splash Screen
