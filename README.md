@@ -159,5 +159,10 @@ https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=target@email.com
 ```sh
 export PS1="\[\e[1;32m\]john@ubuntu:\[\e[0;32m\]\w\[\e[0;35m\]$(gitPrompt)\[\e[0;32m\]▶\[\e[0;37m\]"
 ```
-
 ## Splash Screen
+
+
+
+
+## Arch Linux Install CheetSheet
+![CheetSheet](arch-install-cheet.png)
