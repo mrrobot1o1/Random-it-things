@@ -166,3 +166,134 @@ export PS1="\[\e[1;32m\]john@ubuntu:\[\e[0;32m\]\w\[\e[0;35m\]$(gitPrompt)\[\e[0
 
 ## Arch Linux Install CheetSheet
 ![CheetSheet](arch-install-cheet.png)
+
+```sh
+#Download official iso image and boot from it
+
+#Check if network is working or not
+ ping google.com
+
+ #Nearest mirror server (Optional)
+
+ reflector --verbose -c "India" --sort rate > /etc/pacman.d/mirrorlist
+
+ packman -Syy
+
+ #check disk
+
+ lsblk
+
+ cfdisk
+
+ #Lebel dos , Primary
+
+#Create swap partition
+
+#Primary, Type--- Linux swap / Solaris, write then done
+#check disk
+fdisk -l
+
+#Now format  root and swap partition
+
+#Format Root
+mkfs.ext4 /dev/sda1
+#Swap format
+mkdwap /dev/sda2
+#check disks
+lsblk
+fdisk -l
+
+#Now mount the Partitions
+
+#maount root partition
+mount /dev/sda1 /mnt
+#check maount
+lsblk
+#swap on
+swapon /dev/sda2
+#check again
+lsblk
+
+#install basic pakages
+pacstrap -i /mnt base linux linux-firmware sudo nano vi
+
+#Now configure system
+
+#Genrate fstab file
+genfstab -U -p /mnt >> /mnt/etc/fstab
+#change root in system
+arch-chroot /mnt
+
+#set local
+nano /etc/locale.gen #Uncomment Your Local
+locale-gen #Genrate local
+#set language
+echo "LANG=en_IN.UTF-8" > /etc/locale.conf
+#Set TimeGone
+ln -sf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime
+
+#sync time
+timedatectl set-ntp true
+#Set Hardware clock
+hwclock --systohc
+#chek date  > /etc/hostname
+date
+#set Hostname
+echo <hostname> > /etc/hostname
+
+#configure host file
+nano /etc/hosts
+
+#Ip Verison 4 ip set
+127.0.0.1    localhost
+#Ip Verion 6 ip set
+::1          localhost
+127.0.1.1    <hostname>.localdomain     <hostname>
+
+#User Configration
+#set root password
+passwd
+#Add nonroot user
+useradd -m -G wheel -s /bin/bash <username>
+#set user password
+passwd <username>
+#Give user paermission to run anycommand using sudo
+#make a change in sudoers file
+EDITOR=nano visudo
+
+#uncomment group wheel to execute any command
+
+# Uncommnet to allow members of group wheel to execute any command
+# %whell ALL=(ALL) ALL
+
+#install Grub boot loader
+pacman -S grub
+
+#install grub in disk
+grub-install /dev/sda
+#Generate grub configration file
+grub-mkconfig -o /boot/grub/grub.cfg
+#Nework manager configration
+#install network manager
+packman -S networkmanger
+#enable network manager service
+systemctl enable NetworkManager
+#Now test the installtion
+exit
+#Unmount root partition
+umount -R /mnt
+
+reboot
+#If eveything works file install kde [boot from arch grub boot loader]
+
+#login with root
+uname -a
+#install desktop environment
+pacman -S xorg plasma plasma-wayland-session kde-applications konsole firefox
+
+#Enable Display manger service
+systemctl enable sddm
+
+reboot
+#############Done################
+```
