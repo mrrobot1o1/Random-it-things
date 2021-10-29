@@ -297,3 +297,27 @@ systemctl enable sddm
 reboot
 #############Done################
 ```
+
+
+## Set Screen Resolution in Linux using x11 Configuration 
+
+xrandr -q to get display name and Resolution
+
+```sh
+vim /etc/X11/xorg.conf
+```
+```
+Section "Monitor"
+    Identifier "eDP"
+    Option "Primary" "true"
+    Option "PreferredMode" "2560x1440"
+EndSection
+
+
+Section "Monitor"
+    Identifier "DisplayPort-0"
+    Option "RightOf" "Primary"
+    Option "PreferredMode" "1920x1080"
+EndSection
+```
+
