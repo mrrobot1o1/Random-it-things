@@ -321,3 +321,7 @@ Section "Monitor"
 EndSection
 ```
 
+## Spin FTP Server
+```ph
+python3 -m pyftpdlib
+```
