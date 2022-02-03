@@ -325,3 +325,10 @@ EndSection
 ```ph
 python3 -m pyftpdlib
 ```
+
+## Port Beaing Used by which application/command
+Example: port 8080
+
+```
+lsof -i:8080
+```
