@@ -124,7 +124,7 @@ awk '!/^[ \t]*$/'
 ```sh
 sudo apt-get install gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip build-essential
 ```
-===> Download compile
+===> Download compile and install
 ```sh
 cd $(mktemp -d)
 git clone https://github.com/neovim/neovim --depth 1
@@ -322,13 +322,19 @@ EndSection
 ```
 
 ## Spin FTP Server
-```ph
+```sh
 python3 -m pyftpdlib
 ```
 
 ## Port Beaing Used by which application/command
 Example: port 8080
 
-```
+```sh
 lsof -i:8080
+```
+
+## add file for all file in current directoy
+
+```sh
+find . -type f -exec mv '{}' '{}'.jpg \;
 ```
