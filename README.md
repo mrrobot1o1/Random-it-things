@@ -62,13 +62,17 @@ ipinfo 17.253.144.10 | jq .org | tr -d \" | awk '{print $1}'
 ## Delete old commits
 
 ```sh
-git rev-list HEAD --count
-git checkout --orphan backup
-git rev-list HEAD --count
+# Check out to a temporary branch:
+git checkout --orphan TEMP_BRANCH
+# Add all the files:
 git add -A
-git commit -am "Removed All old commits"
+# Commit the changes:
+git commit -am "Initial commit"
+# Delete the old branch:
 git branch -D master
+# Rename the temporary branch to master:
 git branch -m master
+# Finally, force update to our repository:
 git push -f origin master
 ```
 ## Set GitHub Remove Origin 
